@@ -1,0 +1,33 @@
+# Django is a free and open-source, Python-based web framework that follows the model–template–views architectural pattern
+Django==3.2.7
+# Django REST framework is a powerful and flexible toolkit for building Web APIs.
+djangorestframework==3.12.4
+# django-environ is the Python package that allows you to use Twelve-factor methodology to configure your Django application with environment variables.
+# https://django-environ.readthedocs.io/en/latest/
+django-environ==0.7.0
+# Django-filter provides a simple way to filter down a queryset based on parameters a user provides.
+django-filter==21.1
+# AutoSlugField is an extended SlugField able to automatically resolve name clashes.
+
+# AutoSlugField can also perform the following tasks on save:
+
+# populate itself from another field (using populate_from),
+# use custom slugify function (using slugify or Settings), and
+# preserve uniqueness of the value (using unique or unique_with).
+django-autoslug==1.9.8
+# A Django application that provides country choices for use with forms, flag icons static files, and a country field for models.
+django-countries==7.2.1
+# The Python Imaging Library adds image processing capabilities to your Python interpreter.
+Pillow==8.3.2
+# A Django library which interfaces with python-phonenumbers to validate, pretty print and convert phone numbers.
+django-phonenumber-field==5.2.0
+phonenumbers==8.12.33
+# Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+psycopg2==2.9.3
+# linter for python.
+flake8==3.9.2
+# # Black is the uncompromising Python code formatter.
+
+# isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections.
+isort==5.9.3
+
