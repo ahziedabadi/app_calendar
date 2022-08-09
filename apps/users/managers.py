@@ -12,14 +12,16 @@ from django.core.validators import validate_email
 class CustomUserManager(BaseUserManager):
     """Manager for user."""
 
-    def email_validator(self,email):
+    def email_validator(self, email):
         """Validate email if its not a valid email raise error and return a message."""
         try:
             validate_email(email)
         except ValidationError:
             raise ValueError(_("Please write a valid email."))
 
-    def create_user(self, username, first_name, last_name, email, password, **extra_fields):
+    def create_user(
+        self, username, first_name, last_name, email, password, **extra_fields
+    ):
 
         if not username:
             raise ValueError(_("This Field can not be empty."))
@@ -29,9 +31,6 @@ class CustomUserManager(BaseUserManager):
 
         if not last_name:
             raise ValueError(_("This Field can not be empty."))
-
-        # if not password:
-        #     raise ValueError(_("Superuser must have password"))
 
         if email:
             email = self.normalize_email(email)
@@ -53,7 +52,9 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, first_name, last_name, email, password, **extra_fields):
+    def create_superuser(
+        self, username, first_name, last_name, email, password, **extra_fields
+    ):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
@@ -72,13 +73,8 @@ class CustomUserManager(BaseUserManager):
             self.email_validator(email)
         else:
             raise ValueError(_("An email address is required."))
-        user = self.create_user(
-                username=username,
-                first_name=first_name,
-                last_name=last_name,
-                email=email,
-                **extra_fields
-            )
+
+        user = self.create_user(username, first_name, last_name, email, password, **extra_fields)
+
         user.save(using=self._db)
         return user
-
