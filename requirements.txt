@@ -30,4 +30,8 @@ flake8==3.9.2
 
 # isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections.
 isort==5.9.3
+# jwt setup
+djoser==2.1.0
+djangorestframework-simplejwt==4.8.0
+pyJWT==2.1.0
 
