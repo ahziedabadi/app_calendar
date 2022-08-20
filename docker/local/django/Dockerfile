@@ -6,7 +6,7 @@ RUN mkdir $APP_HOME/staticfiles
 WORKDIR $APP_HOME
 
 
-LABEL maintainer='api.imperfect@gmail.com'
+LABEL maintainer='ahziedabadi'
 LABEL decription="Development image for Calendar_App"
 
 # prevent python to write pyc files to disk
@@ -41,13 +41,13 @@ RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 
 
-#COPY ./docker/local/django/celery/worker/start /start-celeryworker
-#RUN sed -i 's/\r$//g' /start-celeryworker
-#RUN chmod +x /start-celeryworker
+COPY ./docker/local/django/celery/worker/start /start-celeryworker
+RUN sed -i 's/\r$//g' /start-celeryworker
+RUN chmod +x /start-celeryworker
 
-#COPY ./docker/local/django/celery/flower/start /start-flower
-#RUN sed -i 's/\r$//g' /start-flower
-#RUN chmod +x /start-flower
+COPY ./docker/local/django/celery/flower/start /start-flower
+RUN sed -i 's/\r$//g' /start-flower
+RUN chmod +x /start-flower
 
 
 ENTRYPOINT [ "/entrypoint"]

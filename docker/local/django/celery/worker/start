@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -o errexit
+
+set -o nounset
+
+watchmedo auto-restart -d calendar_app_dev/ -p "*.py" -- celery worker -A calendar_app_dev --loglevel=info
